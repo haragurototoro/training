@@ -18,19 +18,25 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 
 Docker CEをインストールします
 ```
-sudo yum install docker-ce -y 
+yum install docker-ce -y 
 ```
 
 自動起動を有効化します
 ```
-sudo systemctl enable docker
+systemctl enable docker
 ```
 
 Dockerを起動します
 ```
-sudo systemctl start docker
+systemctl start docker
 ```
 
+確認作業
+***
+サービスの起動確認
+```
+systemctl status docker
+```
 インストールしたDockerをバージョン確認します
 ```
 docker -v
