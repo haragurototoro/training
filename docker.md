@@ -1,11 +1,11 @@
-不要なパッケージ削除
+**不要なパッケージ削除**
 ***
 
 古いバージョンのものをアンインストールします
 ```
 yum remove docker*
 ```
-Docker環境構築
+**Docker環境構築**
 ***
 ```
 yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -31,7 +31,7 @@ Dockerを起動します
 systemctl start docker
 ```
 
-確認作業
+**確認作業**
 ***
 サービスの起動確認
 ```
