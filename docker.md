@@ -57,19 +57,32 @@ docker -v
 **仮想コンテナ作成**
 ***
 ```
-  wordpress:
-    image: wordpress
-    container_name: some-wordpress
-    restart: always
-    ports:
-      - 8080:80
-    environment:
-      WORDPRESS_DB_PASSWORD: my-secret-pw
+version: '3.3'
 
-  mysql:
+services:
+  db:
     image: mysql:5.7
-    container_name: some-mysql
+    volumes:
+      - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: my-secret-pw「
+      MYSQL_ROOT_PASSWORD: root-pass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: db-user
+      MYSQL_PASSWORD: db-pass
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: db-user
+      WORDPRESS_DB_PASSWORD: db-pass
+      WORDPRESS_DB_NAME: wordpress
+volumes:
+   db_data: {} 
 ```
