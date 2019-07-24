@@ -1,3 +1,18 @@
+### Docker構築手順書
+***
+
+**ポート確認と解放作業**
+***
+現在解放されているポートを確認します
+```
+firewall-cmd --list-all
+```
+
+WEBサーバのポート開放
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+```
+
 **不要なパッケージ削除**
 ***
 
@@ -5,6 +20,7 @@
 ```
 yum remove docker*
 ```
+
 **Docker環境構築**
 ***
 
