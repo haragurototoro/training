@@ -1,3 +1,19 @@
+**ネットワークの設定と再起動**
+***
+ネットワークの設定ファイルを開きます
+```
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+```
+動的にサーバにIPを割り当てます
+```
+#ONBOOT=no
+ONBOOT=yes
+```
+ネットワークの設定を更新します
+```
+systemctl restart network
+```
+
 ## Docker構築手順書
 
 **ポート確認と解放作業**
