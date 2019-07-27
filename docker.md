@@ -49,6 +49,12 @@ epel-releaseをアップデートする
 rpm -Uvh epel-release*rpm
 ```
 
+古いミドルウェアのバージョンを最新版のミドルウェアのバージョンに交換します。
+```
+yum update -y
+```
+
+Dockerの依存関係があるミドルウェアをインストールします
 ```
 yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
@@ -61,25 +67,31 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 Docker CEをインストールします
 ```
 yum install docker-ce -y 
-yum install docker-compose
+yum install docker-compose -y
 ```
 
-自動起動を有効化します
+必要なパッケージ導入後にDockerの初期のサービス状態を確認します
+```
+systemctl status docker
+```
+
+Dockerのサービスをサーバ再起動時に自動起動するように有効化の設定をします
 ```
 systemctl enable docker
 ```
 
-Dockerを起動します
+Dockerのサービスが停止しているため起動させます
 ```
 systemctl start docker
 ```
 
 **確認作業**
 ***
-サービスの起動確認
+Dockerのサービスの起動後に正常に動作しているかを確認します
 ```
 systemctl status docker
 ```
+
 インストールしたDockerをバージョン確認します
 ```
 docker -v
@@ -116,4 +128,15 @@ services:
       WORDPRESS_DB_NAME: wordpress
 volumes:
    db_data: {} 
+```
+
+**dockerの確認コマンド**
+***
+Dockerのイメージがダウンロードされていることを確認します
+```
+Docker imges ls -a
+```
+Dockerの仮想コンテナが起動していることを確認します
+```
+Docker ps -a
 ```
