@@ -35,7 +35,7 @@ services:
     privileged: true
     command: /sbin/init
 　
-    web2:
+  web3:
   　  image: nginx
   　  environment:
         \ - VIRTUAL_HOST=web3.localhost
