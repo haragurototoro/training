@@ -36,11 +36,11 @@ services:
     command: /sbin/init
 　
   web3:
-  　  image: nginx
-  　  environment:
-        \ - VIRTUAL_HOST=web3.localhost
-      privileged: true
-      command: /sbin/init　
+　  image: nginx
+　  environment:
+      \ - VIRTUAL_HOST=web3.localhost
+　  privileged: true
+　  command: /sbin/init　
 ```
 
 #### #複数コンテナ起動の動作確認
