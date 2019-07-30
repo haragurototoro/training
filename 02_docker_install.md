@@ -28,6 +28,16 @@ WEBサーバのポート開放
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 ```
 
+ファイヤーウォールの設定を更新します
+```
+firewall-cmd --reload
+```
+
+現在解放されているポートを確認します
+```
+firewall-cmd --list-all
+```
+
 **不要なパッケージ削除**
 ***
 
@@ -38,6 +48,10 @@ yum remove docker*
 
 **Docker環境構築**
 ***
+ダウンロードする際に使用するコマンドをインストールする
+```
+yum install wget -y
+```
 
 epel-releaseをダウンロードする
 ```
@@ -134,7 +148,7 @@ volumes:
 ***
 Dockerのイメージがダウンロードされていることを確認します
 ```
-Docker imges ls -a
+Docker imges
 ```
 Dockerの仮想コンテナが起動していることを確認します
 ```
