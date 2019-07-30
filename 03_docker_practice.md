@@ -11,36 +11,28 @@ vi /etc/docker/docker-compose.yml
 ```
 version: '3'
 
-services:  
+services:
   nginx-proxy:
-    image: centos7  
+    image: jwilder/nginx-proxy
     ports:
-      - 80:80  
+      - 80:80
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    privileged: true
-    command: /sbin/init
 
-  web:  
+  web:
     image: nginx
     environment:
       - VIRTUAL_HOST=web.localhost
-    privileged: true
-    command: /sbin/init
 
-  web2:  
+  web2:
     image: nginx
     environment:
       - VIRTUAL_HOST=web2.localhost
-    privileged: true
-    command: /sbin/init
 
   web3:
     image: nginx
     environment:
       - VIRTUAL_HOST=web3.localhost
-    privileged: true
-    command: /sbin/init
 ```
 
 #### #複数コンテナ起動の動作確認
