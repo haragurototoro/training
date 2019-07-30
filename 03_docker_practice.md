@@ -9,38 +9,38 @@ vi /etc/docker/docker-compose.yml
 1. 定義内容は以下の通りに記載します  
 (1)記載内容
 ```
-version: '3'  
-　
+version: '3'
+
 services:  
   nginx-proxy:
-　  image: centos7  
+    image: centos7  
 　  ports:
-    \ - 80:80  
-　  volumes:
-    \ - /var/run/docker.sock:/tmp/docker.sock:ro
-　  privileged: true
-　  command: /sbin/init
-　　
-  web:  
-　  image: nginx
-　  environment:
-      \ - VIRTUAL_HOST=web.localhost
-　  privileged: true
-　  command: /sbin/init
-　　
-  web2:  
-　  image: nginx
-　  environment:
-      \ - VIRTUAL_HOST=web2.localhost
+      - 80:80  
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     privileged: true
     command: /sbin/init
-　
-  web3:
-　  image: nginx
+
+  web:  
+    image: nginx
 　  environment:
-      \ - VIRTUAL_HOST=web3.localhost
-　  privileged: true
-　  command: /sbin/init　
+      - VIRTUAL_HOST=web.localhost
+    privileged: true
+    command: /sbin/init
+
+  web2:  
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=web2.localhost
+    privileged: true
+    command: /sbin/init
+
+  web3:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=web3.localhost
+    privileged: true
+    command: /sbin/init　
 ```
 
 #### #複数コンテナ起動の動作確認
