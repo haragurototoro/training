@@ -113,6 +113,17 @@ docker -v
 
 **仮想コンテナ作成**
 ***
+dockerの設定ファイルがある場所に移動します
+```
+cd /etc/docker/
+```
+
+docker-composeの設定ファイルを新規で作成します
+```
+vi docker-compose.yml
+```
+
+dockerで作成したいコンテナの情報を記載します
 ```
 version: '3.3'
 
@@ -142,6 +153,11 @@ services:
       WORDPRESS_DB_NAME: wordpress
 volumes:
    db_data: {} 
+```
+
+docker-composeを使ってコンテナを２つ作成します
+```
+docker-compose up -d
 ```
 
 **dockerの確認コマンド**
