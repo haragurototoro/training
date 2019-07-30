@@ -14,7 +14,7 @@ version: '3'
 services:  
   nginx-proxy:
     image: centos7  
-　  ports:
+    ports:
       - 80:80  
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -23,7 +23,7 @@ services:
 
   web:  
     image: nginx
-　  environment:
+    environment:
       - VIRTUAL_HOST=web.localhost
     privileged: true
     command: /sbin/init
@@ -40,7 +40,7 @@ services:
     environment:
       - VIRTUAL_HOST=web3.localhost
     privileged: true
-    command: /sbin/init　
+    command: /sbin/init
 ```
 
 #### #複数コンテナ起動の動作確認
